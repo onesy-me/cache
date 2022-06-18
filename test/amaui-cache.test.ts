@@ -1,18 +1,11 @@
 /* tslint:disable: no-shadowed-variable */
 import { assert } from '@amaui/test';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../utils/js/test/utils';
+import { evaluate } from '../utils/js/test/utils';
 
 import AmauiCache from '../src';
 
 group('@amaui/cache', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
-
-  post(async () => {
-    await closeBrowsers(browsers);
-  });
 
   preTo(async () => AmauiCache.reset());
 
@@ -24,7 +17,7 @@ group('@amaui/cache', () => {
       window.AmauiCache.add(4, ...args);
 
       return window.AmauiCache.get(...args);
-    }, { browsers });
+    });
 
     const args = [4, { a: 4, ab: 4 }];
 
@@ -45,7 +38,7 @@ group('@amaui/cache', () => {
       window.AmauiCache.add(4, ...args);
 
       return window.AmauiCache.get(...args);
-    }, { browsers });
+    });
 
     const args = [4, { a: 4, ab: 4 }];
 
@@ -66,7 +59,7 @@ group('@amaui/cache', () => {
       window.AmauiCache.add(4, ...args);
 
       return window.AmauiCache.has(...args);
-    }, { browsers });
+    });
 
     const args = [4, { a: 4, ab: 4 }];
 
@@ -93,7 +86,7 @@ group('@amaui/cache', () => {
       window.AmauiCache.update(40, ...args);
 
       return [a, window.AmauiCache.get(...args), window.AmauiCache.get(4, ...args)];
-    }, { browsers });
+    });
 
     const args = [4, { a: 4, ab: 4 }];
 
@@ -124,7 +117,7 @@ group('@amaui/cache', () => {
       window.AmauiCache.remove(...args);
 
       return [a, window.AmauiCache.get(...args)];
-    }, { browsers });
+    });
 
     const args = [4, { a: 4, ab: 4 }];
 
@@ -173,7 +166,7 @@ group('@amaui/cache', () => {
           result.push(object !== window.AmauiCache.get(...args));
 
           return result;
-        }, { browsers });
+        });
 
         const args = [4, { a: 4, ab: 4 }];
         const object = {};
@@ -231,7 +224,7 @@ group('@amaui/cache', () => {
           result.push(window.AmauiCache.get(...args));
 
           return result;
-        }, { browsers });
+        });
 
         const args = [4, { a: 4, ab: 4 }];
 
