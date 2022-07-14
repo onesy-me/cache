@@ -1,3 +1,1 @@
-import { default as AmauiCache } from './amaui-cache';
-
-export default AmauiCache;
+export { default } from './amaui-cache';

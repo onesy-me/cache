@@ -1,4 +1,6 @@
-import { merge, copy, hash } from '@amaui/utils';
+import merge from '@amaui/utils/merge';
+import copy from '@amaui/utils/copy';
+import hash from '@amaui/utils/hash';
 
 const unix = () => Math.floor(new Date().getTime() / 1000);
 
