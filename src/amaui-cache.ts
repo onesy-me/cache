@@ -4,13 +4,23 @@ import hash from '@amaui/utils/hash';
 
 const unix = () => Math.floor(new Date().getTime() / 1000);
 
+export interface ICacheItem {
+  value: any;
+  added_at?: number;
+  updated_at?: number;
+}
+
+interface IOptionsValue {
+  copy?: boolean;
+}
+
+interface IOptionsAdd {
+  override?: boolean;
+}
+
 export interface IOptions {
-  value?: {
-    copy?: boolean;
-  };
-  add?: {
-    override?: boolean;
-  };
+  value?: IOptionsValue;
+  add?: IOptionsAdd;
 }
 
 const optionsDefault: IOptions = {
@@ -23,7 +33,7 @@ const optionsDefault: IOptions = {
 };
 
 class AmauiCache {
-  public static caches = {};
+  public static caches: Record<string, ICacheItem> = {};
   private static options_: IOptions = optionsDefault;
 
   public static get options() {
