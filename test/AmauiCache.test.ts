@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import AmauiCache from '../src';
 
-group('@amaui/cache', () => {
+group('AmauiCache', () => {
 
   preTo(async () => AmauiCache.reset());
 

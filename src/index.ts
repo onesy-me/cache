@@ -1,1 +1,1 @@
-export { default } from './amaui-cache';
+export { default } from './AmauiCache';
