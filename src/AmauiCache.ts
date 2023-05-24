@@ -25,10 +25,10 @@ export interface IOptions {
 
 const optionsDefault: IOptions = {
   value: {
-    copy: false,
+    copy: false
   },
   add: {
-    override: true,
+    override: true
   },
 };
 
