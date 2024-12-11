@@ -1,1 +1,1 @@
-export { default } from './AmauiCache';
+export { default } from './OnesyCache';

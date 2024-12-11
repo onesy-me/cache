@@ -4,11 +4,11 @@
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
-    <img src='utils/images/logo.svg' alt='amaui logo' />
+    <img src='utils/images/logo.svg' alt='onesy logo' />
   </a>
 </p>
 
-<h1 align='center'>amaui Cache</h1>
+<h1 align='center'>onesy Cache</h1>
 
 <p align='center'>
   Cache
@@ -39,22 +39,22 @@
 ### Add
 
 ```sh
-yarn add @amaui/cache
+yarn add @onesy/cache
 ```
 
 ### Use
 
 ```javascript
-  import AmauiCache from '@amaui/cache';
+  import OnesyCache from '@onesy/cache';
 
   const args = [4, { a: 4, ab: 4 }];
 
   // Args is made into a hash, which makes the key
   // a very useful, when you wanna cache a value based
   // on some complex amount of variables
-  AmauiCache.add(4, ...args);
+  OnesyCache.add(4, ...args);
 
-  AmauiCache.get(...args);
+  OnesyCache.get(...args);
 
   // Output
   // 4

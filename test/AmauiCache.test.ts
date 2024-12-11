@@ -1,29 +1,29 @@
 /* tslint:disable: no-shadowed-variable */
-import { assert } from '@amaui/test';
+import { assert } from '@onesy/test';
 
 import { evaluate } from '../utils/js/test/utils';
 
-import AmauiCache from '../src';
+import OnesyCache from '../src';
 
-group('AmauiCache', () => {
+group('OnesyCache', () => {
 
-  preTo(async () => AmauiCache.reset());
+  preTo(async () => OnesyCache.reset());
 
   to('add', async () => {
     const valueBrowsers = await evaluate((window: any) => {
       // tslint:disable-next-line
       const args = [4, { a: 4, ab: 4 }];
 
-      window.AmauiCache.add(4, ...args);
+      window.OnesyCache.add(4, ...args);
 
-      return window.AmauiCache.get(...args);
+      return window.OnesyCache.get(...args);
     });
 
     const args = [4, { a: 4, ab: 4 }];
 
-    AmauiCache.add(4, ...args);
+    OnesyCache.add(4, ...args);
 
-    const valueNode = AmauiCache.get(...args);
+    const valueNode = OnesyCache.get(...args);
 
     const values = [valueNode, ...valueBrowsers];
 
@@ -35,16 +35,16 @@ group('AmauiCache', () => {
       // tslint:disable-next-line
       const args = [4, { a: 4, ab: 4 }];
 
-      window.AmauiCache.add(4, ...args);
+      window.OnesyCache.add(4, ...args);
 
-      return window.AmauiCache.get(...args);
+      return window.OnesyCache.get(...args);
     });
 
     const args = [4, { a: 4, ab: 4 }];
 
-    AmauiCache.add(4, ...args);
+    OnesyCache.add(4, ...args);
 
-    const valueNode = AmauiCache.get(...args);
+    const valueNode = OnesyCache.get(...args);
 
     const values = [valueNode, ...valueBrowsers];
 
@@ -56,16 +56,16 @@ group('AmauiCache', () => {
       // tslint:disable-next-line
       const args = [4, { a: 4, ab: 4 }];
 
-      window.AmauiCache.add(4, ...args);
+      window.OnesyCache.add(4, ...args);
 
-      return window.AmauiCache.has(...args);
+      return window.OnesyCache.has(...args);
     });
 
     const args = [4, { a: 4, ab: 4 }];
 
-    AmauiCache.add(4, ...args);
+    OnesyCache.add(4, ...args);
 
-    const valueNode = AmauiCache.has(...args);
+    const valueNode = OnesyCache.has(...args);
 
     const values = [valueNode, ...valueBrowsers];
 
@@ -77,27 +77,27 @@ group('AmauiCache', () => {
       // tslint:disable-next-line
       const args = [4, { a: 4, ab: 4 }];
 
-      window.AmauiCache.add(4, ...args);
+      window.OnesyCache.add(4, ...args);
 
       // tslint:disable-next-line
-      const a = window.AmauiCache.get(...args);
+      const a = window.OnesyCache.get(...args);
 
-      window.AmauiCache.update(4, 4, ...args);
-      window.AmauiCache.update(40, ...args);
+      window.OnesyCache.update(4, 4, ...args);
+      window.OnesyCache.update(40, ...args);
 
-      return [a, window.AmauiCache.get(...args), window.AmauiCache.get(4, ...args)];
+      return [a, window.OnesyCache.get(...args), window.OnesyCache.get(4, ...args)];
     });
 
     const args = [4, { a: 4, ab: 4 }];
 
-    AmauiCache.add(4, ...args);
+    OnesyCache.add(4, ...args);
 
-    const a = AmauiCache.get(...args);
+    const a = OnesyCache.get(...args);
 
-    AmauiCache.update(4, 4, ...args);
-    AmauiCache.update(40, ...args);
+    OnesyCache.update(4, 4, ...args);
+    OnesyCache.update(40, ...args);
 
-    const valueNode = [a, AmauiCache.get(...args), AmauiCache.get(4, ...args)];
+    const valueNode = [a, OnesyCache.get(...args), OnesyCache.get(4, ...args)];
 
     const values = [valueNode, ...valueBrowsers];
 
@@ -109,25 +109,25 @@ group('AmauiCache', () => {
       // tslint:disable-next-line
       const args = [4, { a: 4, ab: 4 }];
 
-      window.AmauiCache.add(4, ...args);
+      window.OnesyCache.add(4, ...args);
 
       // tslint:disable-next-line
-      const a = window.AmauiCache.get(...args);
+      const a = window.OnesyCache.get(...args);
 
-      window.AmauiCache.remove(...args);
+      window.OnesyCache.remove(...args);
 
-      return [a, window.AmauiCache.get(...args)];
+      return [a, window.OnesyCache.get(...args)];
     });
 
     const args = [4, { a: 4, ab: 4 }];
 
-    AmauiCache.add(4, ...args);
+    OnesyCache.add(4, ...args);
 
-    const a = AmauiCache.get(...args);
+    const a = OnesyCache.get(...args);
 
-    AmauiCache.remove(...args);
+    OnesyCache.remove(...args);
 
-    const valueNode = [a, AmauiCache.get(...args)];
+    const valueNode = [a, OnesyCache.get(...args)];
 
     const values = [valueNode, ...valueBrowsers];
 
@@ -145,25 +145,25 @@ group('AmauiCache', () => {
           // tslint:disable-next-line
           const object = {};
 
-          window.AmauiCache.add(object, ...args);
+          window.OnesyCache.add(object, ...args);
 
           // tslint:disable-next-line
           const result = [];
 
-          window.AmauiCache.options = { value: { copy: false } };
+          window.OnesyCache.options = { value: { copy: false } };
 
           // By default value is not copied
           // and value for array and object values is the same
-          result.push(object === window.AmauiCache.get(...args));
+          result.push(object === window.OnesyCache.get(...args));
 
           // Update value.copy option
-          window.AmauiCache.options = { value: { copy: true } };
+          window.OnesyCache.options = { value: { copy: true } };
 
-          window.AmauiCache.add(object, ...args);
+          window.OnesyCache.add(object, ...args);
 
           // With value.copy true, value is copied and
           // value for array and object values reference is not the same
-          result.push(object !== window.AmauiCache.get(...args));
+          result.push(object !== window.OnesyCache.get(...args));
 
           return result;
         });
@@ -171,24 +171,24 @@ group('AmauiCache', () => {
         const args = [4, { a: 4, ab: 4 }];
         const object = {};
 
-        AmauiCache.add(object, ...args);
+        OnesyCache.add(object, ...args);
 
         const result = [];
 
-        AmauiCache.options = { value: { copy: false } };
+        OnesyCache.options = { value: { copy: false } };
 
         // By default value is not copied
         // and value for array and object values is the same
-        result.push(object === AmauiCache.get(...args));
+        result.push(object === OnesyCache.get(...args));
 
         // Update value copy option
-        AmauiCache.options = { value: { copy: true } };
+        OnesyCache.options = { value: { copy: true } };
 
-        AmauiCache.add(object, ...args);
+        OnesyCache.add(object, ...args);
 
         // With value copy true, value is copied and
         // value for array and object values reference is not the same
-        result.push(object !== AmauiCache.get(...args));
+        result.push(object !== OnesyCache.get(...args));
 
         const valueNode = result;
 
@@ -206,41 +206,41 @@ group('AmauiCache', () => {
           // tslint:disable-next-line
           const args = [4, { a: 4, ab: 4 }];
 
-          window.AmauiCache.options = { add: { override: true } };
+          window.OnesyCache.options = { add: { override: true } };
 
-          window.AmauiCache.add(40, ...args);
-          window.AmauiCache.add(4, ...args);
+          window.OnesyCache.add(40, ...args);
+          window.OnesyCache.add(4, ...args);
 
           // tslint:disable-next-line
           const result = [];
 
-          result.push(window.AmauiCache.get(...args));
+          result.push(window.OnesyCache.get(...args));
 
           // Update add override option
-          window.AmauiCache.options = { add: { override: false } };
+          window.OnesyCache.options = { add: { override: false } };
 
-          window.AmauiCache.add(40, ...args);
+          window.OnesyCache.add(40, ...args);
 
-          result.push(window.AmauiCache.get(...args));
+          result.push(window.OnesyCache.get(...args));
 
           return result;
         });
 
         const args = [4, { a: 4, ab: 4 }];
 
-        AmauiCache.add(40, ...args);
-        AmauiCache.add(4, ...args);
+        OnesyCache.add(40, ...args);
+        OnesyCache.add(4, ...args);
 
         const result = [];
 
-        result.push(AmauiCache.get(...args));
+        result.push(OnesyCache.get(...args));
 
         // Update options
-        AmauiCache.options = { add: { override: false } };
+        OnesyCache.options = { add: { override: false } };
 
-        AmauiCache.add(40, ...args);
+        OnesyCache.add(40, ...args);
 
-        result.push(AmauiCache.get(...args));
+        result.push(OnesyCache.get(...args));
 
         const valueNode = result;
 
@@ -254,10 +254,10 @@ group('AmauiCache', () => {
   });
 
   to('reset', async () => {
-    AmauiCache.reset();
+    OnesyCache.reset();
 
-    assert(AmauiCache.caches).eql({});
-    assert(AmauiCache.options).eql({
+    assert(OnesyCache.caches).eql({});
+    assert(OnesyCache.options).eql({
       value: {
         copy: false,
       },

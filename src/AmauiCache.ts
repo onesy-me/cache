@@ -1,6 +1,6 @@
-import merge from '@amaui/utils/merge';
-import copy from '@amaui/utils/copy';
-import hash from '@amaui/utils/hash';
+import merge from '@onesy/utils/merge';
+import copy from '@onesy/utils/copy';
+import hash from '@onesy/utils/hash';
 
 const unix = () => Math.floor(new Date().getTime() / 1000);
 
@@ -32,7 +32,7 @@ const optionsDefault: IOptions = {
   },
 };
 
-class AmauiCache {
+class OnesyCache {
   public static caches: Record<string, ICacheItem> = {};
   private static options_: IOptions = optionsDefault;
 
@@ -100,4 +100,4 @@ class AmauiCache {
   }
 }
 
-export default AmauiCache;
+export default OnesyCache;
