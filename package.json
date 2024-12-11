@@ -2,7 +2,7 @@
   "name": "@onesy/cache",
   "version": "1.0.0",
   "description": "Cache",
-  "repository": "https://github.com/onesy-org/onesy-cache.git",
+  "repository": "https://github.com/onesy-me/cache.git",
   "author": "Lazar <lazareric.com@gmail.com>",
   "license": "MIT",
   "private": false,
